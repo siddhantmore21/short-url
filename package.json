@@ -1,0 +1,28 @@
+{
+  "name": "short-url",
+  "version": "1.0.0",
+  "description": "Creates a short version of given url",
+  "main": "s",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddhantmore21/short-url.git"
+  },
+  "keywords": [
+    "short-url"
+  ],
+  "author": "Siddhant More",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddhantmore21/short-url/issues"
+  },
+  "homepage": "https://github.com/siddhantmore21/short-url#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.2.4",
+    "nodemon": "^3.1.0"
+  }
+}
