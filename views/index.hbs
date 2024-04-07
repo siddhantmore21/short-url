@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Url Generator</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row text-center my-5">
+            <h2 class="w-100">Short URL Generator</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <form class="form d-flex justify-content-between" action="http://localhost:8000/short-url/api/generateShortUrl" method="post">
+                    <div class="form-group mb-2 w-15">
+                        <label for="url">Enter Your URL</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 w-50">
+                        <input type="text" class="form-control" id="url" name="url" placeholder="Eg. https://www.google.com" required>
+                    </div>
+                    <button type="submit" class="btn btn-success mb-2 w-15">Get Short URL</button>
+                    <button type="button" class="btn btn-primary mb-2 w-15" id="refresh">Refresh</button>
+                </form>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>Sr. No.</th>
+                        <th>Url</th>
+                        <th>Short Url</th>
+                        <th>Clicks</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                         {{#each shortUrls}}
+                          <tr>
+                            <td>{{ @index}}</td>
+                            <td>{{ this.url }}</td>
+                            <td><a target="_blank" href="http://localhost:8000/r/{{ this.shortId }}">http://localhost:8000/r/{{ this.shortId }}</a></td>
+                            <td> {{ this.visits.length }}</td>  
+                            <td >
+                                <button class="btn btn-sm btn-warning" data-url="http://localhost:8000/r/{{ this.shortId }}" id="copyButton">Copy</button>
+                            </td>
+                          </tr>
+                        {{/each}}
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../public/js/script.js"></script>
+</html>
